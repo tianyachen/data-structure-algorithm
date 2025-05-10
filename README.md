@@ -1,4 +1,4 @@
-# 🧠 My LeetCode Submissions
+# My LeetCode Submissions
 
 Welcome to my personal repository where I keep track of all my LeetCode problem submissions. This is a collection of solutions I've written while practicing coding problems to strengthen my skills in data structures, algorithms, and problem solving.
 

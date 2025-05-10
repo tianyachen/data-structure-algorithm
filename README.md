@@ -36,7 +36,7 @@ Most of the solutions are written in:
 - Python 🐍
 - C++ 💻
 - Java ☕
-- Swift 🧭 (especially for iOS-related practice)
+- Swift 🧭 
 
 ## 📌 Notes
 

@@ -48,10 +48,11 @@ Most of the solutions are written in:
 
 This is a personal repo, but if you find something useful or want to collaborate on similar practice, feel free to fork or open an issue.
 
-## 📅 Progress Tracker (Optional)
+<!---
+## 📅 Progress Tracker
 
 You can add a badge or markdown checklist to track your solved problems by difficulty or topic.
-
+-->
 ---
 
 Happy Coding! 🚀  

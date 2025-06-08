@@ -12,7 +12,6 @@ public:
                 char ch=word[j];
                 low+=tolower(ch);
             }
-            std::cout << low << endl;
             bool A=true ,B=true, C=true;
             for(int j=0;j<low.size();j++){
                 if(row1.count(low[j])==NULL){
@@ -25,7 +24,6 @@ public:
                     C=false;
                 }
             }
-            std::cout << A << " " << B << " " << C << endl;
             if(A || B || C){
                 ans.push_back(words[i]);
             }

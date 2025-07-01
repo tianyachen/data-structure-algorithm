@@ -10,7 +10,7 @@ class Solution:
             if matrix[i][j] <= prevNum:
                 return 0
             
-            pathSize = 1
+            pathSize = 0
             for dr, dc in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 pathSize = max(pathSize, 1 + dfs(i + dr, j + dc, matrix[i][j]))
             

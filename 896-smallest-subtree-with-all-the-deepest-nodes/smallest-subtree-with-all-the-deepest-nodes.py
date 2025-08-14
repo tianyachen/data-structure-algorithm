@@ -7,20 +7,28 @@
 class Solution:
     def subtreeWithAllDeepest(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 
-        def dfs(node: Optional[TreeNode]) -> Tuple[TreeNode, int]:
-            if not node:
-                return (None, 0)
+        if not root:
+            return None
+        queue = deque([root])
+        parents = {root: None}
 
-            leftNode, leftDepth = dfs(node.left)
-            rightNode, rightDepth = dfs(node.right)
+        while queue:
+            level_size = len(queue)
+            current_level = []
+            for _ in range(level_size):
+                node = queue.popleft()
+                current_level.append(node)
+                if node.left:
+                    parents[node.left] = node
+                    queue.append(node.left)
+                if node.right:
+                    parents[node.right] = node
+                    queue.append(node.right)
 
-            if leftDepth == rightDepth:
-                return (node, leftDepth + 1)
-            elif leftDepth > rightDepth:
-                return (leftNode, leftDepth + 1)
+        nodes = set(current_level)
+        while len(nodes) > 1:
+            nodes = set(parents[node] for node in nodes)
+
+        return nodes.pop()
+
             
-            return (rightNode, rightDepth + 1)
-
-
-        retNode, _ = dfs(root)
-        return retNode

@@ -7,20 +7,20 @@
 class Solution:
     def subtreeWithAllDeepest(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 
-        def dfs(node: Optional[TreeNode], depth: int) -> Tuple[TreeNode, int]:
+        def dfs(node: Optional[TreeNode]) -> Tuple[TreeNode, int]:
             if not node:
-                return (None, depth)
+                return (None, 0)
 
-            leftNode, leftDepth = dfs(node.left, depth + 1)
-            rightNode, rightDepth = dfs(node.right, depth + 1)
+            leftNode, leftDepth = dfs(node.left)
+            rightNode, rightDepth = dfs(node.right)
 
             if leftDepth == rightDepth:
-                return (node, leftDepth)
+                return (node, leftDepth + 1)
             elif leftDepth > rightDepth:
-                return (leftNode, leftDepth)
+                return (leftNode, leftDepth + 1)
             
-            return (rightNode, rightDepth)
+            return (rightNode, rightDepth + 1)
 
 
-        retNode, _ = dfs(root, 0)
+        retNode, _ = dfs(root)
         return retNode

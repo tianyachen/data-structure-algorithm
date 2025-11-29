@@ -15,26 +15,15 @@
  */
 class Solution {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null) {
-            return null;
-        }
+        if (root1 == null) return root2;
+        if (root2 == null) return root1;
 
-        TreeNode newNode = new TreeNode();
-        if (root1 == null) {
-            newNode.val = root2.val;
-            newNode.left = mergeTrees(null, root2.left);
-            newNode.right = mergeTrees(null, root2.right);
-        } else if (root2 == null) {
-            newNode.val = root1.val;
-            newNode.left = mergeTrees(root1.left, null);
-            newNode.right = mergeTrees(root1.right, null);
-        } else {
-            newNode.val = root1.val + root2.val;
-            newNode.left = mergeTrees(root1.left, root2.left);
-            newNode.right = mergeTrees(root1.right, root2.right);
-        }
+        TreeNode node = new TreeNode(root1.val + root2.val);
 
-        return newNode;
+        node.left = mergeTrees(root1.left, root2.left);
+        node.right = mergeTrees(root1.right, root2.right);
+
+        return node;
 
     }
 }

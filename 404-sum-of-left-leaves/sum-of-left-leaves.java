@@ -16,16 +16,28 @@
 class Solution {
     public int sumOfLeftLeaves(TreeNode root) {
         if (root == null) return 0;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
         int ans = 0;
 
-        if (root.left != null && root.left.left == null && root.left.right == null) {
-            ans += root.left.val;
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+
+            if (node.left != null) {
+                if (node.left.left == null && node.left.right == null) {
+                    ans += node.left.val;
+                } else {
+                    queue.offer(node.left);
+                }
+            }
+
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
         }
 
-        ans += sumOfLeftLeaves(root.left);
-        ans += sumOfLeftLeaves(root.right);
-
         return ans;
-
     }
 }

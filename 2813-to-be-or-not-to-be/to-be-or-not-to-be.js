@@ -8,14 +8,14 @@ var expect = function(val) {
             if (val === val2) {
                 return true;
             } else {
-                throw "Not Equal";
+                throw new Error("Not Equal");
             }
         },
         notToBe: function(val2) {
             if (val !== val2) {
                 return true;
             } else {
-                throw "Equal";
+                throw new Error("Equal");
             }
         }
     }
